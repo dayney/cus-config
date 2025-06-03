@@ -1,6 +1,6 @@
 {
   "name": "@cus-developer/config",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Shared configuration for CUS Developer",
   "main": "index.js",
   "files": [
