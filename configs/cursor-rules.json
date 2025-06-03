@@ -1,0 +1,3 @@
+{
+  "rules": [{ "name": "no-debugger", "level": "error" }]
+}

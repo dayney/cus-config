@@ -1,0 +1,47 @@
+{
+  "name": "@cus-developer/config",
+  "version": "1.0.0",
+  "description": "Shared configuration for CUS Developer",
+  "main": "index.js",
+  "files": [
+    "configs",
+    "scripts"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^18.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^18.0.0",
+    "cz-git": "^1.6.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "prettier": ">=3.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayney/cus-config.git"
+  },
+  "keywords": [
+    "config",
+    "eslint",
+    "prettier",
+    "editorconfig"
+  ],
+  "author": "CUS Developer",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

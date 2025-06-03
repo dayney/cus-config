@@ -1,0 +1,3 @@
+{
+  "prompts": [{ "name": "feature", "message": "请描述本次新增的功能：" }]
+}
