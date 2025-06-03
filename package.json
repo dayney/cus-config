@@ -1,6 +1,6 @@
 {
   "name": "@cus-developer/config",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Shared configuration for CUS Developer",
   "main": "index.js",
   "files": [
@@ -35,7 +35,13 @@
     "config",
     "eslint",
     "prettier",
-    "editorconfig"
+    "editorconfig",
+    "git",
+    "npm",
+    "tsconfig",
+    "cursor",
+    "commitlint",
+    "vscode"
   ],
   "author": "CUS Developer",
   "license": "MIT",

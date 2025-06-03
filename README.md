@@ -14,11 +14,12 @@ npm install --save-dev @cus-developer/config
 
 ## 一键同步配置到项目
 
-在项目根目录下运行：
+在项目根目录下`packjson.json 的scripts`中添加：
 
 ```bash
-npx @cus-developer/config setup
+"postinstall": "node node_modules/@cus-developer/config/scripts/setup.js"
 ```
+然后安装完了项目所有的依赖之后，使用 `npm run postinstall`  命令即可一键同步配置到项目。
 
 该命令会自动将本库中的所有配置文件和目录（如 .editorconfig、.prettierrc.yaml、.prettierignore、.gitignore、eslint.config.js、eslint.config.mjs、commitlint.config.js、.npmrc、.cursor、.vscode、cursor-rules.json、tsconfig.json 等）复制到你的项目根目录。
 
@@ -41,7 +42,7 @@ npx @cus-developer/config setup
 
 ```bash
 npm update @cus-developer/config
-npx @cus-developer/config setup
+npm run postinstall
 ```
 
 即可同步最新的配置。
