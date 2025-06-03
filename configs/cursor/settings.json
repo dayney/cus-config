@@ -8,7 +8,7 @@
       "useTypeScript": false
     },
     "chat": {
-      "promptTemplate": "你是一位资深的Vue.js开发专家，了解医疗健康领域的应用开发。本项目是一个医疗健康服务平台，提供心理咨询、健康管理、专家连线等功能。我有一些代码相关的问题需要你的帮助:"
+      "promptTemplate": "你是一位资深的前端架构师，你善长Vue.js开发专家，了解前端开发。"
     },
     "completion": {
       "maxTokens": 2048,
