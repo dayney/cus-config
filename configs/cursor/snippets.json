@@ -16,9 +16,5 @@
       "name": "HTTP状态处理",
       "code": "/**\n * HTTP状态码处理\n * @param {number} statusCode - HTTP状态码\n * @returns {string} 错误消息\n */\nconst getErrorMessage = (statusCode) => {\n  // 状态码消息映射\n  const statusMessages = {\n    400: '请求参数错误',\n    401: '未授权，请重新登录',\n    403: '拒绝访问',\n    404: '请求的资源不存在',\n    500: '服务器内部错误'\n  };\n  \n  return statusMessages[statusCode] || `未知错误: ${statusCode}`;\n};"
     },
-    {
-      "name": "BMI状态计算",
-      "code": "/**\n * 根据BMI值计算状态\n * @param {number} bmi - BMI指数值\n * @returns {Object} 包含状态和显示文本的对象\n */\nconst getBmiStatus = (bmi) => {\n  // BMI状态判断标准对象映射\n  const bmiRanges = {\n    underweight: { min: 0, max: 18.5, text: '偏瘦' },\n    normal: { min: 18.5, max: 25, text: '正常' },\n    overweight: { min: 25, max: 30, text: '超重' },\n    obese: { min: 30, max: Infinity, text: '肥胖' }\n  };\n  \n  // 根据范围判断状态\n  for (const [status, range] of Object.entries(bmiRanges)) {\n    if (bmi >= range.min && bmi < range.max) {\n      return {\n        status,\n        statusZh: range.text\n      };\n    }\n  }\n  \n  return { status: 'unknown', statusZh: '未知' };
-    }
   ]
 }
