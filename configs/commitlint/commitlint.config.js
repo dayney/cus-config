@@ -1,5 +1,4 @@
 /** @type {import('cz-git').UserConfig} */
- 
 module.exports = {
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
@@ -98,7 +97,7 @@ module.exports = {
       'footerPrefix',
       'customFooterPrefixs'
     ],
-    issuePrefixs: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
+    issuePrefixes: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
     customIssuePrefixsAlign: 'top',
     emptyIssuePrefixsAlias: 'skip',
     customIssuePrefixsAlias: 'custom',

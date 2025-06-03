@@ -7,7 +7,6 @@ const configFiles = {
   '.prettierrc.yaml': 'configs/prettier/.prettierrc.yaml',
   '.prettierignore': 'configs/prettier/.prettierignore',
   '.gitignore': 'configs/git/.gitignore',
-  'eslint.config.js': 'configs/eslint.config.js',
   'eslint.config.mjs': 'configs/eslint.config.mjs',
   'commitlint.config.js': 'configs/commitlint/commitlint.config.js',
   '.npmrc': 'configs/npm/.npmrc',

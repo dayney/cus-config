@@ -1,4 +1,59 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2,
-  "editor.formatOnSave": true
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Prettier 配置
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+
+  // Cursor AI设置
+  "cursor.ai.language": "typescript",
+  "cursor.ai.framework": "electron",
+  "cursor.ai.defaultCodeSnippetLength": "medium",
+  "cursor.ai.codeGen.defaultCommentStyle": "jsdoc",
+
+  // 关联文件类型
+  "files.associations": {
+    "*.vue": "vue"
+  },
+
+  // 搜索排除
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+
+  // 自定义文件排除
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist": true
+  },
+
+  // TypeScript和Vue设置
+  "typescript.format.enable": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "vetur.validation.template": false,
+
+  // 保留原有的格式化设置
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

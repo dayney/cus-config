@@ -1,3 +1,45 @@
 {
-  "cursorMode": "block"
+  "aiSettings": {
+    "codeGeneration": {
+      "language": "javascript",
+      "framework": "vue",
+      "styleRules": [
+        {
+          "name": "statusValuesInEnglish",
+          "description": "所有状态值必须使用英文，避免使用中文进行判断逻辑",
+          "pattern": "状态值必须使用英文，例如'normal', 'overweight', 'active'等，不使用中文进行判断"
+        },
+        {
+          "name": "objectMappingForConditions",
+          "description": "三个以上的判断条件时使用对象映射代替if/else或switch",
+          "pattern": "当有3个以上的条件判断时，使用对象属性映射代替嵌套的if/else或switch语句"
+        },
+        {
+          "name": "useChinseForDisplay",
+          "description": "状态值用于显示时，增加中文字段",
+          "pattern": "当状态值需要显示在界面上时，使用单独的中文字段（如'statusZh'）"
+        },
+        {
+          "name": "useArrayIncludes",
+          "description": "检查列表中是否包含某个值时使用数组的includes方法",
+          "pattern": "使用数组的includes方法代替多个或条件的判断"
+        },
+        {
+          "name": "detailed-comments",
+          "description": "为复杂的逻辑添加详细注释",
+          "pattern": "添加详细注释解释对象映射或函数的目的、参数和返回值"
+        },
+        {
+          "name": "consistentNaming",
+          "description": "保持CSS类名与状态值的一致性",
+          "pattern": "CSS类名应与状态值保持一致，如'overweight'对应'tag-overweight'"
+        },
+        {
+          "name": "scssVariableUsage",
+          "description": "SCSS变量使用规则",
+          "pattern": "超过1处重复使用的值才使用变量控制，只有1处使用则直接使用具体值"
+        }
+      ]
+    }
+  }
 }
