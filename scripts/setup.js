@@ -3,13 +3,13 @@ const path = require('path')
 
 // 单文件映射
 const configFiles = {
-  '.editorconfig': 'configs/editorconfig/.editorconfig',
-  '.prettierrc.yaml': 'configs/prettier/.prettierrc.yaml',
-  '.prettierignore': 'configs/prettier/.prettierignore',
-  '.gitignore': 'configs/git/.gitignore',
+  '.editorconfig': 'configs/editorconfig/editorconfig',
+  '.prettierrc.yaml': 'configs/prettier/prettierrc.yaml',
+  '.prettierignore': 'configs/prettier/prettierignore',
+  '.gitignore': 'configs/git/gitignore',
   'eslint.config.mjs': 'configs/eslint.config.mjs',
   'commitlint.config.js': 'configs/commitlint/commitlint.config.js',
-  '.npmrc': 'configs/npm/.npmrc',
+  '.npmrc': 'configs/npm/npmrc',
   'cursor-rules.json': 'configs/cursor-rules.json',
   'tsconfig.json': 'configs/tsconfig/tsconfig.json'
 }
