@@ -1,3 +1,4 @@
+/* eslint-env node */
 const fs = require('fs')
 const path = require('path')
 
@@ -11,7 +12,9 @@ const configFiles = {
   'commitlint.config.js': 'configs/commitlint/commitlint.config.js',
   '.npmrc': 'configs/npm/npmrc',
   'cursor-rules.json': 'configs/cursor-rules.json',
-  'tsconfig.json': 'configs/tsconfig/tsconfig.json'
+  'tsconfig.json': 'configs/tsconfig/tsconfig.json',
+  'tsconfig.web.json': 'configs/tsconfig/tsconfig.web.json',
+  'tsconfig.node.json': 'configs/tsconfig/tsconfig.node.json'
 }
 
 // 递归复制目录
