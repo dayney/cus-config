@@ -14,16 +14,26 @@ const configFiles = {
   'cursor-rules.json': 'configs/cursor-rules.json',
   'tsconfig.json': 'configs/tsconfig/tsconfig.json',
   'tsconfig.web.json': 'configs/tsconfig/tsconfig.web.json',
-  'tsconfig.node.json': 'configs/tsconfig/tsconfig.node.json'
+  'tsconfig.node.json': 'configs/tsconfig/tsconfig.node.json',
+  'tsconfig.test.json': 'configs/tsconfig/tsconfig.test.json',
+  'tsconfig.prod.json': 'configs/tsconfig/tsconfig.prod.json'
 }
 
 // 递归复制目录
 function copyDir(src, dest) {
-  if (!fs.existsSync(src)) return
-  if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true })
+  if (!fs.existsSync(src)) {
+    console.warn(`⚠️ 源目录不存在: ${src}`)
+    return
+  }
+
+  if (!fs.existsSync(dest)) {
+    fs.mkdirSync(dest, { recursive: true })
+  }
+
   fs.readdirSync(src).forEach((item) => {
     const srcPath = path.join(src, item)
     const destPath = path.join(dest, item)
+
     if (fs.statSync(srcPath).isDirectory()) {
       copyDir(srcPath, destPath)
     } else {
@@ -44,9 +54,12 @@ function setup() {
   Object.entries(configFiles).forEach(([target, source]) => {
     const sourcePath = path.join(packageRoot, source)
     const targetPath = path.join(projectRoot, target)
+
     if (fs.existsSync(sourcePath)) {
       const targetDir = path.dirname(targetPath)
-      if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true })
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true })
+      }
       fs.copyFileSync(sourcePath, targetPath)
       console.log(`✅ 已复制: ${targetPath}`)
     } else {

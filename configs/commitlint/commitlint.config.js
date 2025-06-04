@@ -1,3 +1,4 @@
+/* eslint-env node */
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   rules: {
