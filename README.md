@@ -119,3 +119,60 @@ npm run postinstall
 ## 许可证
 
 MIT
+
+# 项目配置模板
+
+这是一个可复用的项目配置模板，包含了常用的开发工具配置。
+
+## 包含的配置
+
+- **编辑器配置**
+  - Cursor 编辑器配置
+  - VSCode 配置
+  - EditorConfig 配置
+
+- **代码质量工具**
+  - ESLint 配置
+  - Prettier 配置
+  - CommitLint 配置
+
+- **其他配置**
+  - NPM 配置
+  - Git 配置
+
+## 使用方法
+
+1. 克隆此仓库
+2. 运行安装脚本：
+   ```bash
+   node scripts/setup.js
+   ```
+
+## 配置说明
+
+### Cursor 配置
+- `autocomplete-rules.json`: 自动完成规则
+- `component-rules.md`: 组件开发规范
+- `custom-prompts.json`: 自定义提示
+- `project-description.md`: 项目描述
+- `settings.json`: 编辑器设置
+- `snippets.json`: 代码片段
+
+### VSCode 配置
+- `cursor.json`: Cursor 集成配置
+- `extensions.json`: 推荐扩展
+- `launch.json`: 调试配置
+- `settings.json`: 编辑器设置
+
+### ESLint 配置
+- `eslint.config.mjs`: ESLint 规则配置
+
+### Prettier 配置
+- `prettierrc.yaml`: 格式化规则
+- `prettierignore`: 忽略文件
+
+### 其他配置
+- `.editorconfig`: 编辑器通用配置
+- `.npmrc`: NPM 配置
+- `.gitignore`: Git 忽略文件
+- `commitlint.config.js`: 提交信息规范

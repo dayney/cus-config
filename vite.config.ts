@@ -1,21 +1,28 @@
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+/// <reference types="vitest/config" />
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd())
-  process.env.NODE_ENV = mode
+// Configure Vitest (https://vitest.dev/config/)
 
-  return {
-    plugins: [vue()],
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, 'src')
-      }
-    },
-    server: {
-      port: 5173,
-      open: true
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  test: {
+    testTimeout: 30000, // 增加超时时间到 30 秒
+    hookTimeout: 30000,
+    teardownTimeout: 30000,
+    reporters: ['default', 'html'],
+    environment: 'node',
+    include: ['test/**/*.test.{js,ts}'],
+    exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'test/'],
+      reportsDirectory: './coverage'
     }
+    /* for example, use global to avoid globals imports (describe, test, expect): */
+    // globals: true,
+  },
+  server: {
+    port: 8877
   }
 })
