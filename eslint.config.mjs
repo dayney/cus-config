@@ -32,7 +32,6 @@ const baseConfig = {
   },
   rules: {
     "no-debugger": "error",
-    quotes: ["error", "single"],
     "comma-dangle": [
       "error",
       {

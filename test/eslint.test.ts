@@ -36,23 +36,6 @@ describe("ESLint 规则: comma-dangle", () => {
   });
 });
 
-// quotes
-// -------------------
-describe("ESLint 规则: quotes", () => {
-  it("正例不应有 quotes 报错", async () => {
-    const code = "const msg = 'hello';";
-    const results = await eslint.lintText(code, { filePath: "test.ts" });
-    const messages = results[0].messages.filter((m) => m.ruleId === "quotes");
-    expect(messages).toHaveLength(0);
-  });
-  it("反例应有 quotes 报错", async () => {
-    const code = 'const msg = "hello";';
-    const results = await eslint.lintText(code, { filePath: "test.ts" });
-    const messages = results[0].messages.filter((m) => m.ruleId === "quotes");
-    expect(messages.length).toBeGreaterThan(0);
-  });
-});
-
 // no-debugger
 // -------------------
 describe("ESLint 规则: no-debugger", () => {
