@@ -5,8 +5,12 @@ import pluginTs from "@typescript-eslint/eslint-plugin";
 import parserTs from "@typescript-eslint/parser";
 
 // 环境判断
-const isProd = process.env.NODE_ENV === "production";
-const isTest = process.env.NODE_ENV === "test";
+const nodeEnv =
+  typeof process !== "undefined" && process.env && process.env.NODE_ENV
+    ? process.env.NODE_ENV
+    : "";
+const isProd = nodeEnv === "production";
+const isTest = nodeEnv === "test";
 
 // 基础配置
 const baseConfig = {
@@ -27,13 +31,13 @@ const baseConfig = {
     "@typescript-eslint": pluginTs,
   },
   rules: {
-    "no-debugger": isProd ? "error" : "off",
+    "no-debugger": "error",
     quotes: ["error", "single"],
     "comma-dangle": [
       "error",
       {
         arrays: "always-multiline",
-        objects: "never",
+        objects: "always-multiline",
         imports: "always-multiline",
         exports: "always-multiline",
         functions: "always-multiline",
