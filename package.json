@@ -1,14 +1,13 @@
 {
-  "name": "@vitest/example-test",
+  "name": "@cus-developer/config",
   "type": "module",
   "private": true,
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "test": "vitest",
+    "test:run": "vitest run",
     "test:ui": "vitest --ui",
-    "test:run": "vitest run"
+    "setup": "node scripts/setup.cjs"
   },
   "devDependencies": {
     "@commitlint/lint": "^19.8.1",
@@ -16,6 +15,7 @@
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
     "@vitest/ui": "latest",
+    "cz-git": "^1.11.1",
     "editorconfig": "^2.0.1",
     "eslint-plugin-vue": "^10.1.0",
     "prettier": "^3.5.3",
@@ -24,5 +24,10 @@
   },
   "stackblitz": {
     "startCommand": "npm run test:ui"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-git"
+    }
   }
 }

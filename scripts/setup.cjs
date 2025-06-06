@@ -58,6 +58,22 @@ function setup() {
   const packageRoot = path.resolve(__dirname, '..')
   const projectRoot = process.cwd()
 
+  // 1. 先删除所有目标文件/目录
+  Object.keys(configFiles).forEach((target) => {
+    const targetPath = path.join(projectRoot, target)
+    if (fs.existsSync(targetPath)) {
+      fs.rmSync(targetPath, { recursive: true, force: true })
+      console.log(`🗑 已删除: ${targetPath}`)
+    }
+  })
+  Object.keys(configDirs).forEach((target) => {
+    const targetPath = path.join(projectRoot, target)
+    if (fs.existsSync(targetPath)) {
+      fs.rmSync(targetPath, { recursive: true, force: true })
+      console.log(`🗑 已删除: ${targetPath}`)
+    }
+  })
+
   console.log('🚀 开始安装配置文件...')
 
   // 复制单文件
