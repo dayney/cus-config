@@ -29,5 +29,6 @@
     "commitizen": {
       "path": "cz-git"
     }
-  }
+  },
+  "version": "0.0.1"
 }
