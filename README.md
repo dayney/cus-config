@@ -10,6 +10,8 @@ CUS Developer 共享配置文件包。
 
 ```bash
 npm install --save-dev @cus-developer/config
+#或者
+pnpm install -D github:dayney/cus-config#v0.0.5
 ```
 
 ## 一键同步配置到项目
@@ -127,11 +129,13 @@ MIT
 ## 包含的配置
 
 - **编辑器配置**
+
   - Cursor 编辑器配置
   - VSCode 配置
   - EditorConfig 配置
 
 - **代码质量工具**
+
   - ESLint 配置
   - Prettier 配置
   - CommitLint 配置
@@ -151,6 +155,7 @@ MIT
 ## 配置说明
 
 ### Cursor 配置
+
 - `autocomplete-rules.json`: 自动完成规则
 - `component-rules.md`: 组件开发规范
 - `custom-prompts.json`: 自定义提示
@@ -159,19 +164,23 @@ MIT
 - `snippets.json`: 代码片段
 
 ### VSCode 配置
+
 - `cursor.json`: Cursor 集成配置
 - `extensions.json`: 推荐扩展
 - `launch.json`: 调试配置
 - `settings.json`: 编辑器设置
 
 ### ESLint 配置
+
 - `eslint.config.mjs`: ESLint 规则配置
 
 ### Prettier 配置
+
 - `prettierrc.yaml`: 格式化规则
 - `prettierignore`: 忽略文件
 
 ### 其他配置
+
 - `.editorconfig`: 编辑器通用配置
 - `.npmrc`: NPM 配置
 - `.gitignore`: Git 忽略文件
