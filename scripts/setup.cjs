@@ -30,6 +30,19 @@ const configDirs = {
   ".husky": "./configs/husky",
 };
 
+// 需要同步的依赖
+const requiredDependencies = {
+  "@commitlint/lint": "^19.8.1",
+  "@eslint/js": "^9.28.0",
+  "@typescript-eslint/eslint-plugin": "^8.33.1",
+  "@typescript-eslint/parser": "^8.33.1",
+  "@vitest/ui": "latest",
+  "cz-git": "^1.11.1",
+  editorconfig: "^2.0.1",
+  "eslint-plugin-vue": "^10.1.0",
+  prettier: "^3.5.3",
+};
+
 // 递归复制目录
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) {
@@ -64,11 +77,11 @@ function updatePackageJson() {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 
     // 添加 setup 脚本
-    if (!packageJson.scripts) {
-      packageJson.scripts = {};
-    }
-    packageJson.scripts.setup =
-      "node node_modules/@cus-developer/config/scripts/setup.cjs";
+    // if (!packageJson.scripts) {
+    //   packageJson.scripts = {};
+    // }
+    // packageJson.scripts.setup =
+    //   "node node_modules/@cus-developer/config/scripts/setup.cjs";
 
     // 添加 commitizen 配置
     if (!packageJson.config) {
@@ -76,6 +89,17 @@ function updatePackageJson() {
     }
     packageJson.config.commitizen = {
       path: "cz-git",
+    };
+
+    // 同步依赖
+    if (!packageJson.devDependencies) {
+      packageJson.devDependencies = {};
+    }
+
+    // 合并依赖，保留已有的其他依赖
+    packageJson.devDependencies = {
+      ...packageJson.devDependencies,
+      ...requiredDependencies,
     };
 
     // 写回 package.json
@@ -88,8 +112,14 @@ function updatePackageJson() {
 
 // 主函数
 function setup() {
-  const packageRoot = path.resolve(__dirname, "..");
+  // 支持通过环境变量指定配置源目录
+  const packageRoot = process.env.CONFIGS_SOURCE_ROOT
+    ? path.resolve(process.env.CONFIGS_SOURCE_ROOT)
+    : path.resolve(__dirname, "..");
   const projectRoot = process.cwd();
+
+  console.log("📦 配置源目录:", packageRoot);
+  console.log("📦 项目根目录:", projectRoot);
 
   // 更新 package.json
   updatePackageJson();
@@ -116,6 +146,12 @@ function setup() {
   Object.entries(configFiles).forEach(([target, source]) => {
     const sourcePath = path.join(packageRoot, source);
     const targetPath = path.join(projectRoot, target);
+
+    console.log("🔍 检查文件:", {
+      sourcePath,
+      exists: fs.existsSync(sourcePath),
+      targetPath,
+    });
 
     if (fs.existsSync(sourcePath)) {
       const targetDir = path.dirname(targetPath);

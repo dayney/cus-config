@@ -7,10 +7,12 @@
   "scripts": {
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
-    "setup": "node node_modules/@cus-developer/config/scripts/setup.cjs",
+    "setup": "node scripts/setup.cjs",
     "postinstall": "node scripts/setup.cjs"
   },
   "devDependencies": {
+    "vite": "latest",
+    "vitest": "latest",
     "@commitlint/lint": "^19.8.1",
     "@eslint/js": "^9.28.0",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
@@ -19,9 +21,7 @@
     "cz-git": "^1.11.1",
     "editorconfig": "^2.0.1",
     "eslint-plugin-vue": "^10.1.0",
-    "prettier": "^3.5.3",
-    "vite": "latest",
-    "vitest": "latest"
+    "prettier": "^3.5.3"
   },
   "stackblitz": {
     "startCommand": "npm run test:ui"
@@ -31,5 +31,10 @@
       "path": "cz-git"
     }
   },
+  "files": [
+    "configs/",
+    "scripts/",
+    "index.js"
+  ],
   "version": "0.0.5"
 }
