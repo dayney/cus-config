@@ -55,6 +55,11 @@ function copyDir(src, dest) {
   }
 
   fs.readdirSync(src).forEach((item) => {
+    // 排除 .vscode 子目录
+    if (item === ".vscode") {
+      return;
+    }
+
     const srcPath = path.join(src, item);
     const destPath = path.join(dest, item);
 

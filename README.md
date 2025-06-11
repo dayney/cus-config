@@ -11,7 +11,7 @@ CUS Developer 共享配置文件包。
 ```bash
 npm install --save-dev @cus-developer/config
 #或者
-pnpm install -D github:dayney/cus-config#v0.0.5
+pnpm install -D github:dayney/cus-config#v0.0.7
 ```
 
 ## 一键同步配置到项目
@@ -19,7 +19,7 @@ pnpm install -D github:dayney/cus-config#v0.0.5
 在项目根目录下`packjson.json 的scripts`中添加：
 
 ```bash
-"postinstall": "node node_modules/@cus-developer/config/scripts/setup.js"
+"postinstall": "node node_modules/@cus-developer/config/scripts/setup.cjs"
 ```
 
 然后安装完了项目所有的依赖之后，使用 `npm run postinstall` 命令即可一键同步配置到项目。
