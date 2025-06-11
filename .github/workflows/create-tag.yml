@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'package.json'
+      - "package.json"
 
 permissions:
   contents: write
@@ -19,13 +19,27 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Pull latest changes
+        run: |
+          git pull origin main
+
       - name: Get package version
         id: package-version
         run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Delete existing tag if exists
+        run: |
+          if git rev-parse "v${{ steps.package-version.outputs.VERSION }}" >/dev/null 2>&1; then
+            echo "Deleting existing tag v${{ steps.package-version.outputs.VERSION }}"
+            git tag -d "v${{ steps.package-version.outputs.VERSION }}"
+            git push origin ":refs/tags/v${{ steps.package-version.outputs.VERSION }}"
+          else
+            echo "Tag v${{ steps.package-version.outputs.VERSION }} does not exist"
+          fi
 
       - name: Create and push tag
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git tag -a "v${{ steps.package-version.outputs.VERSION }}" -m "Release v${{ steps.package-version.outputs.VERSION }}"
-          git push origin "v${{ steps.package-version.outputs.VERSION }}" 
+          git push origin "v${{ steps.package-version.outputs.VERSION }}"
