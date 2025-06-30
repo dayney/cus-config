@@ -22,7 +22,7 @@ pnpm install -D github:dayney/cus-config#v0.0.7
 "postinstall": "node node_modules/@cus-developer/config/scripts/setup.cjs"
 ```
 
-然后安装完了项目所有的依赖之后，使用 `npm run postinstall` 命令即可一键同步配置到项目。
+然后使用`npm install`安装完了项目所有的依赖之后，会自动运行 `npm run postinstall` 命令即可一键同步配置到项目。
 
 该命令会自动将本库中的所有配置文件和目录（如 .editorconfig、.prettierrc.yaml、.prettierignore、.gitignore、eslint.config.js、eslint.config.mjs、commitlint.config.js、.npmrc、.cursor、.vscode、cursor-rules.json、tsconfig.json 等）复制到你的项目根目录。
 

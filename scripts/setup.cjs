@@ -115,6 +115,18 @@ function updatePackageJson() {
   }
 }
 
+// 1. 先删除所有目标文件/目录
+function removeTargets(targets) {
+  const projectRoot = process.cwd();
+  Object.keys(targets).forEach((target) => {
+    const targetPath = path.join(projectRoot, target);
+    if (fs.existsSync(targetPath)) {
+      fs.rmSync(targetPath, { recursive: true, force: true });
+      console.log(`🗑 已删除: ${targetPath}`);
+    }
+  });
+}
+
 // 主函数
 function setup() {
   // 支持通过环境变量指定配置源目录
@@ -130,20 +142,8 @@ function setup() {
   updatePackageJson();
 
   // 1. 先删除所有目标文件/目录
-  Object.keys(configFiles).forEach((target) => {
-    const targetPath = path.join(projectRoot, target);
-    if (fs.existsSync(targetPath)) {
-      fs.rmSync(targetPath, { recursive: true, force: true });
-      console.log(`🗑 已删除: ${targetPath}`);
-    }
-  });
-  Object.keys(configDirs).forEach((target) => {
-    const targetPath = path.join(projectRoot, target);
-    if (fs.existsSync(targetPath)) {
-      fs.rmSync(targetPath, { recursive: true, force: true });
-      console.log(`🗑 已删除: ${targetPath}`);
-    }
-  });
+  removeTargets(configFiles);
+  removeTargets(configDirs);
 
   console.log("🚀 开始安装配置文件...");
 
